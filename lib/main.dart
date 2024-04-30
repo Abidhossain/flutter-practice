@@ -55,7 +55,15 @@ class HomeActivity extends StatelessWidget {
               icon: Icon(Icons.settings),color: Colors.white
           ),
         ],
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        child: Icon(Icons.add , color: Colors.white),
+        onPressed: (){
+          mySnackBar("Add new product", context);
+        },
+        backgroundColor: Colors.green,
+      ),
     );
   }
 }
