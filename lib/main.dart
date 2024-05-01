@@ -1,12 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-main() {
-  runApp(const HomeActivity()); //Init Application
+void main() async {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeActivity(),
+    );
+  }
 }
 
 class HomeActivity extends StatelessWidget {
-  const HomeActivity({Key? key});
+  const HomeActivity({
+    super.key,
+  });
 
   mySnackBar(message, context) {
     return ScaffoldMessenger.of(context).showSnackBar(
@@ -17,7 +30,7 @@ class HomeActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Inventory App",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
@@ -26,42 +39,43 @@ class HomeActivity extends StatelessWidget {
         toolbarHeight: 60,
         toolbarOpacity: 1,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white), // Change icon color here
+        iconTheme:
+            const IconThemeData(color: Colors.white), // Change icon color here
         actions: [
           IconButton(
             onPressed: () {
               mySnackBar("I am comment", context);
             },
-            icon: Icon(Icons.comment),
+            icon: const Icon(Icons.comment),
             color: Colors.white,
           ),
           IconButton(
             onPressed: () {
               mySnackBar("I am email", context);
             },
-            icon: Icon(Icons.email),
+            icon: const Icon(Icons.email),
             color: Colors.white,
           ),
           IconButton(
             onPressed: () {
               mySnackBar("I am settings", context);
             },
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             color: Colors.white,
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 15,
-        child: Icon(Icons.add, color: Colors.white),
         onPressed: () {
           mySnackBar("Add new product", context);
         },
         backgroundColor: Colors.green,
+        child: const Icon(Icons.add, color: Colors.white),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
@@ -76,25 +90,40 @@ class HomeActivity extends StatelessWidget {
           }
         },
       ),
-      drawer: Drawer(
+      endDrawer: Drawer(
         backgroundColor: Colors.white,
         child: ListView(
           children: [
-            DrawerHeader(child: Text("Abid Hossain")),
-            ListTile(
-              leading: Icon(Icons.home),
-                title: Text('Home'),
-              onTap: (){mySnackBar('Home', context);},
+            // const Drawer(child: Text("Abid Hossain")),
+            DrawerHeader(
+              padding: EdgeInsets.zero,
+                child: UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color: Colors.green),
+                  accountName: Text("Abid Hossain"),
+                  accountEmail: Text("abid@theme29.com"),
+                  currentAccountPicture: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
+                )
             ),
             ListTile(
-              leading: Icon(Icons.email),
-                title: Text('Email'),
-              onTap: (){mySnackBar('Email', context);},
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                mySnackBar('Home', context);
+              },
             ),
             ListTile(
-              leading: Icon(Icons.phone),
-                title: Text('Phone'),
-              onTap: (){mySnackBar('Phone', context);},
+              leading: const Icon(Icons.email),
+              title: const Text('Email'),
+              onTap: () {
+                mySnackBar('Email', context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.phone),
+              title: const Text('Phone'),
+              onTap: () {
+                mySnackBar('Phone', context);
+              },
             ),
           ],
         ),
