@@ -90,7 +90,7 @@ class HomeActivity extends StatelessWidget {
           }
         },
       ),
-      endDrawer: Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.white,
         child: ListView(
           children: [
@@ -128,6 +128,14 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
+      body: Container(
+        height: 300,
+        width: 450,
+        color: Colors.blueAccent,
+        padding: EdgeInsets.fromLTRB(10, 20,30,40),
+        margin: EdgeInsets.fromLTRB(10, 10,10,40),
+        child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png")
+      )
     );
   }
 }
