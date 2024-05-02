@@ -128,13 +128,46 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(
-        height: 300,
-        width: 450,
-        color: Colors.blueAccent,
-        padding: EdgeInsets.fromLTRB(10, 20,30,40),
-        margin: EdgeInsets.fromLTRB(10, 10,10,40),
-        child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png")
+      // body: Container(
+        // height: 300,
+        // width: 450,
+        // color: Colors.blueAccent,
+        // padding: EdgeInsets.fromLTRB(10, 20,30,40),
+        // margin: EdgeInsets.fromLTRB(10, 10,10,40),
+        // child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png")
+
+      // )
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(8.0), // Adjust the margin as needed
+            child: Container(
+              height: 200,
+              width: 100,
+              child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
+              color: Colors.purpleAccent,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0), // Adjust the margin as needed
+            child: Container(
+              height: 200,
+              width: 100,
+              child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
+              color: Colors.deepOrange,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0), // Adjust the margin as needed
+            child: Container(
+              height: 200,
+              width: 100,
+              child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
+              color: Colors.lime,
+            ),
+          ),
+        ],
       )
     );
   }
