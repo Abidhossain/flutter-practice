@@ -134,7 +134,7 @@ class HomeActivity extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0), // Adjust the margin as needed
             child: Container(
-              height: 200,
+              height: 150,
               width: 100,
               child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
               color: Colors.purpleAccent,
@@ -143,7 +143,7 @@ class HomeActivity extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0), // Adjust the margin as needed
             child: Container(
-              height: 200,
+              height: 150,
               width: 100,
               child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
               color: Colors.deepOrange,
@@ -152,7 +152,7 @@ class HomeActivity extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(8.0), // Adjust the margin as needed
             child: Container(
-              height: 200,
+              height: 150,
               width: 100,
               child: Image.network("https://iconape.com/wp-content/png_logo_vector/avatar-9.png"),
               color: Colors.lime,
