@@ -21,53 +21,77 @@ class HomeActivity extends StatelessWidget {
     super.key,
   });
 
-  alertMessage(message,context){
-    return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: message,duration: Duration(milliseconds: 1000),)
-    );
-  }
-
-  myAlertDialog(context){
-    return showDialog(context: context, builder: (context){
-     return Expanded(
-       child: AlertDialog(
-         title: Text("Do you want to send?"),
-         content: Text("Please select an option"),
-         actions: [
-           TextButton(onPressed: (){
-             alertMessage(Text("Sent Successfully"),context);
-             Navigator.of(context).pop();
-             },
-               child: Text("Send")
-           ),
-           TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("Cancel")),
-         ]
-       ),
-     );
-    });
+  alertMessage(message, context) {
+    return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: message,
+      duration: Duration(milliseconds: 1000),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    ButtonStyle buttonStyle = ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 40));
+
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Inventory App",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: const Text(
+            "Inventory App",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          titleSpacing: 10,
+          backgroundColor: Colors.green,
+          toolbarHeight: 60,
+          toolbarOpacity: 1,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.white),
         ),
-        titleSpacing: 10,
-        backgroundColor: Colors.green,
-        toolbarHeight: 60,
-        toolbarOpacity: 1,
-        elevation: 0,
-        iconTheme:
-            const IconThemeData(color: Colors.white),
-      ),
-
-      body:Center(
-        child: ElevatedButton(child: Text("Click me"), onPressed: (){myAlertDialog(context);}),
-      )
-    );
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: SizedBox(
+                height: 40, // Set the desired height here
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: "Enter First Name",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: SizedBox(
+                height: 40, // Set the desired height here
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: "Enter Last Name",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: SizedBox(
+                height: 40, // Set the desired height here
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: "Enter Email Address",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.all(10),
+                child: ElevatedButton(
+                    style: buttonStyle,
+                    onPressed: () {},
+                    child: Text("Submit")))
+          ],
+        ));
   }
 }
